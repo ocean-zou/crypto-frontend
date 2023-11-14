@@ -2,6 +2,8 @@
 
 Welcome to the Crypto Frontend project! This web application is built using the Next.js framework, TypeScript, Styled Components, and Material-UI. The goal is to provide a user-friendly interface to visualize and analyze cryptocurrency data.
 
+The frontend is already deployed at [https://cryptos-frontend-ivory.vercel.app/](https://cryptos-frontend-ivory.vercel.app/).
+
 ## Technologies Used
 
 - **Next.js**: A React framework for building server-side rendered and statically generated web applications.
@@ -17,13 +19,8 @@ Welcome to the Crypto Frontend project! This web application is built using the 
 To run the development server, use one of the following commands:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
