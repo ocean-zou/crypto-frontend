@@ -1,5 +1,5 @@
 import {GridColDef} from '@mui/x-data-grid';
-export const API_BASE_URL = 'https://api.oceanzou.click';
+export const API_BASE_URL = 'https://api.oceanzou.click/crypto';
 export const END_DATE = '2021-07-06';
 export const DAYS_TO_FETCH = 30;
 export type Row = {
