@@ -4,7 +4,7 @@ import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { Row, uniqueNameMap, DatabaseItem, columns } from '@/config';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { calculatePriceChanges } from './utils';
+import { calculatePriceChangeByPercentage, get24hVolumeChange } from './utils';
 import { API_BASE_URL, END_DATE, DAYS_TO_FETCH } from '@/config';
 
 interface TableComponentProps {
@@ -27,20 +27,37 @@ const TableComponent: React.FC<TableComponentProps> = () => {
             const newRows = Object.values<DatabaseItem>(uniqueNamesData).map((dbItem: DatabaseItem) => {
                 // Calculate 24h, 7d, Mkt Cap, and Last 7 Days values
                 const closeToday = dbItem.Close;
-                const change24h = calculatePriceChanges(data, dbItem, 1);
-                const change7d = calculatePriceChanges(data, dbItem, 7);
-                const change30d = calculatePriceChanges(data, dbItem, 30);
+                const change24h = calculatePriceChangeByPercentage(data, dbItem, 1);
+                const change7d = calculatePriceChangeByPercentage(data, dbItem, 7);
+                const change30d = calculatePriceChangeByPercentage(data, dbItem, 30);
+
+                //calculate 24h volume
+                const volumeChange = get24hVolumeChange(data, dbItem);
+
+                const formattedPrice = closeToday.toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                });
+                const formattedVolumeChange = volumeChange.toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                });
+            
+                const formattedMarketCap = dbItem.Marketcap.toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                });
                 // Construct Row object
                 const newRow: Row = {
                     id: uniqueNameMap[dbItem.Name],
                     '#': uniqueNameMap[dbItem.Name],
                     Coin: dbItem.Name,
-                    Price: closeToday,
+                    Price: formattedPrice,
                     '24h change': change24h,
                     '7d change': change7d,
                     'one month': change30d,
-                    '24h Volume': dbItem.Volume,
-                    'Mkt Cap': dbItem.Marketcap,
+                    '24h Volume': formattedVolumeChange,
+                    'Mkt Cap': formattedMarketCap,
                 };
 
                 return newRow;

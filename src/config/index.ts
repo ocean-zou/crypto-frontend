@@ -1,17 +1,17 @@
 import {GridColDef} from '@mui/x-data-grid';
 export const API_BASE_URL = 'https://api.oceanzou.click/api/crypto';
 export const END_DATE = '2021-07-06';
-export const DAYS_TO_FETCH = 30;
+export const DAYS_TO_FETCH = 31;
 export type Row = {
     id:number;
     '#': number;
     Coin: string;
-    Price: number;
-    '24h change': number;
-    '7d change': number;
-    'one month': number;
-    '24h Volume': number;
-    'Mkt Cap': number;
+    Price: string;
+    '24h change': string;
+    '7d change': string;
+    'one month': string;
+    '24h Volume': string;
+    'Mkt Cap': string;
   };
 
 export const uniqueNameMap: { [key: string]: number } = {
