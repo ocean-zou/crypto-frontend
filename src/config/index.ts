@@ -1,43 +1,43 @@
 import {GridColDef} from '@mui/x-data-grid';
 export const API_BASE_URL = 'https://api.oceanzou.click/api/crypto';
 export const END_DATE = '2021-07-06';
-export const DAYS_TO_FETCH = 30;
+export const DAYS_TO_FETCH = 31;
 export type Row = {
     id:number;
     '#': number;
     Coin: string;
-    Price: number;
-    '24h change': number;
-    '7d change': number;
-    'one month': number;
-    '24h Volume': number;
-    'Mkt Cap': number;
+    Price: string;
+    '24h change': string;
+    '7d change': string;
+    'one month': string;
+    '24h Volume': string;
+    'Mkt Cap': string;
   };
 
 export const uniqueNameMap: { [key: string]: number } = {
-    'Aave': 1,
-    'EOS': 2,
-    'Stellar': 3,
-    'Binance Coin': 4,
-    'Ethereum': 5,
-    'Tether': 6,
-    'Bitcoin': 7,
-    'IOTA': 8,
-    'TRON': 9,
-    'Cardano': 10,
-    'Litecoin': 11,
-    'USD Coin': 12,
-    'Chainlink': 13,
+    'Aave': 13,
+    'EOS': 15,
+    'Stellar': 7,
+    'Binance Coin': 8,
+    'Ethereum': 16,
+    'Tether': 5,
+    'Bitcoin': 4,
+    'IOTA': 20,
+    'TRON': 10,
+    'Cardano': 9,
+    'Litecoin': 1,
+    'USD Coin': 17,
+    'Chainlink': 3,
     'Monero': 14,
-    'Uniswap': 15,
-    'Cosmos': 16,
-    'NEM': 17,
-    'Wrapped Bitcoin': 18,
+    'Uniswap': 22,
+    'Cosmos': 18,
+    'NEM': 23,
+    'Wrapped Bitcoin': 6,
     'Crypto.com Coin': 19,
-    'Polkadot': 20,
-    'XRP': 21,
-    'Dogecoin': 22,
-    'Solana': 23,
+    'Polkadot': 21,
+    'XRP': 11,
+    'Dogecoin': 12,
+    'Solana': 2,
 };
 
 export interface DatabaseItem {
